@@ -1,0 +1,26 @@
+I decided to break up my regex equations into small parts that represent certain classes of temporal words. This includes things like: weekdays, months, ordinal dates etc. By doing this, I was able to reuse certain sequences in multiple regexes while also making the code easier to read. I decided to split up my searches for dates into 8 categories. The order of the categories where carefully chosen as not to miss out on the largest legal date sequence. For example strings like 'Thursday, December 21st' is searched for before 'December 21st'. The cateogories and corresponding examples are as follows: 
+
+# (1) Full Date
+        # Friday, December 21st, 2012
+# (2) Full Date Without Weekday: 
+        # The 1st of January, 2012
+        # January 1st, 2012
+        # January 2012
+        # January 
+        # January 1, 2012
+# (3) Holidays
+        # Christmas Day
+# (4) Numerical
+        # 01/01/2001
+        # 01/01
+        # 1/1/0
+# (5) Weekday the Ordinal
+        # Monday the 5th
+# (6) Weekday and time
+        # Monday afternoon
+        # Monday 2pm
+        # Monday 3:14 am
+# (7) Just times
+        # 3:14 am
+# (8) Just years
+        # 2020
